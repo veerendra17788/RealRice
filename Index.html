@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rice Vendor - Premium Quality Rice</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand img {
+            max-height: 50px;
+        }
+        
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            padding: 10px 15px !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .top-bar {
+            background-color: #f0f0f0;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .hero-section {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+            /* background-image: url('/api/placeholder/1200/600'); */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .category-box {
+            height: 100%;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .category-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-box img {
+            max-width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .product-box {
+            height: 100%;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .product-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-box img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .testimonial-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .testimonial-text::before {
+            content: '\201C';
+            font-size: 3rem;
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            color: var(--primary-color);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .gallery-item {
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-link {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-contact {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .footer-social a {
+            color: white;
+            background: #444;
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--primary-color);
+        }
+        
+        .copyright {
+            background-color: #111;
+            padding: 20px 0;
+            color: #aaa;
+            text-align: center;
+        }
+        
+        /* Chat assistant */
+        .chat-support {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .chat-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .help-icon {
+            background-color: #ff9800;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+            z-index: 1001;
+        }
+        
+        .chat-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-close {
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .chat-body {
+            height: 330px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .chat-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+        }
+        
+        .message-content {
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .received {
+            align-self: flex-start;
+        }
+        
+        .received .message-content {
+            background: #f1f1f1;
+        }
+        
+        .sent {
+            margin-left: auto;
+        }
+        
+        .sent .message-content {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 90px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar d-none d-md-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="mailto:info@realrice.in"><i class="fas fa-envelope me-1"></i> info@realrice.in</a>
+                    <a href="tel:+1234567890"><i class="fas fa-phone me-1"></i> +91 7557657777</a>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://m.me/username" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/917557657777" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img_logo.ico" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">CATEGORIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">GALLERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">CONTACT US</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Finest 100% Real Rice</h1>
+                    <h3 class="mb-4">at Affordable Rate</h3>
+                    <p class="lead mb-4">We provide 100% Natural Farming quality Real rice varieties sourced directly from the finest farms. Experience the authentic taste and aroma of our carefully selected rice.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">Enquire Now</a>
+                </div>
+                <div class="col-lg-6 py-2"><img src="img.jpg" style="height: 80%; width: 90%;" ></div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Categories</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="category-box">
+                        <img src="redrice.jpg" alt="Red Rice">
+                        <h4>Raktha Shali (Red Rice)</h4>
+                        <p>We deal in many brands that represent an impeccable range of Basmati rice.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="category-box">
+                        <img src="whiterice.jpg" alt="White Rice">
+                        <h4>Kumkumasali (White Rice)</h4>
+                        <p>We trade in a wide range of broken rice which is fragmented and not defective.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="category-box">
+                        <img src="blackrice.jpg" alt="Black Rice">
+                        <h4>Kala Batti (Black Rice)</h4>
+                        <p>This is high in demand and often used as a substitute for Basmati rice. Mostly daily in use.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="category-box">
+                        <img src="Navara.jpg" alt="Navara Rice">
+                        <h4>Navara (Red Rice)</h4>
+                        <p>Our supplies also include brown rice that is whole grain rice, high in fibre and is healthier than white rice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Products</h2>
+            <div class="row">
+                <div class="col-md-4 col-lg-2">
+                    <div class="product-box">
+                        <img src="product1.jpg" alt="Product 1">
+                        <div class="product-info">
+                            <h5 class="product-title">Premium Basmati Rice</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="product-box">
+                        <img src="product2.jpg" alt="Product 2">
+                        <div class="product-info">
+                            <h5 class="product-title">Basmati Rice</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="product-box">
+                        <img src="product3.jpg" alt="Product 3">
+                        <div class="product-info">
+                            <h5 class="product-title">Broken Basmati Rice</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="product-box">
+                        <img src="product4.jpg" alt="Product 4">
+                        <div class="product-info">
+                            <h5 class="product-title">Organic Brown Rice</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="product-box">
+                        <img src="product5.jpg" alt="Product 5">
+                        <div class="product-info">
+                            <h5 class="product-title">Traditional Basmati Rice</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="product-box">
+                        <img src="product6.jpg" alt="Product 6">
+                        <div class="product-info">
+                            <h5 class="product-title">Kolam Rice</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="about-img">
+                        <img src="img.jpg" alt="About Us" class="img-fluid rounded" style="height: 400px; width: 500px;">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2>About Real Rice</h2>
+                    <p>At <strong>Real Rice</strong>, we are dedicated to providing <strong>premium-quality rice</strong> that meets the highest standards of purity and nutrition. We carefully select only <strong>superior-grade rice</strong>, ensuring that every grain delivers exceptional taste and health benefits.</p>
+                    <p>Our team of <strong>skilled professionals</strong> oversees the entire process with expertise, from sourcing the finest rice varieties to ensuring <strong>secure and damage-free packaging</strong>. We prioritize quality at every step, so our customers receive only the best.</p>
+                    <p>We offer a diverse range of rice, including <strong>sugar-free rice, black rice, brown rice, organic rice, and more</strong>. Known for our <strong>exceptional quality at reasonable prices</strong>, Real Rice is committed to delivering a <strong>wholesome and satisfying experience</strong> to every customer.</p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-primary">Contact Us</a>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="galleryimg1.jpg" alt="Gallery Image 1" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="galleryimg2.jpg" alt="Gallery Image 2" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="galleryimg3.jpg" alt="Gallery Image 3" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    
+    <section class="wrapper bg-white" id="Blog" class="py-5">
+        <div class="container py-20">
+          <div class="row align-items-center mb-10">
+            <div class="col-md-8 col-lg-9">
+              <h2 class="h2 fw-bold mt-3">Indigenous Rice Varieties and Their Benefits</h2>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+              <a href="#" class="btn btn-primary rounded-pill">View All Varieties</a>
+            </div>
+          </div>
+          
+          <div class="row mt-5 blog grid-view">
+            <div class="col-lg-8">
+              <article class="post mb-4">
+                <div class="post-slider rounded mb-3">
+                  <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block" style="height: 400px; width: 400px;" src="product15.jpg" alt="Rakta Shali">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block" style="height: 400px; width: 400px;" src="product11.jpg" alt="Karuppu Kavuni">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block" style="height: 400px; width: 400px;" src="navara.jpg" alt="Navara">
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="post-header mb-3">
+                  <p class="text-muted small text-uppercase fw-bold">Traditional Grains</p>
+                  <h2 class="h4"><a href="blog.html" class="text-dark">Health Benefits of Indigenous Rice Varieties</a></h2>
+                  <ul class="list-inline text-muted small">
+                    <li class="list-inline-item"><i class="uil uil-calendar-alt"></i> 25 Feb 2025</li>
+                    <li class="list-inline-item"><i class="uil uil-user"></i> By Rice Experts</li>
+                  </ul>
+                </div>
+                <p>Indigenous rice varieties offer numerous health benefits, from boosting immunity to aiding digestion.<br> Learn about some of the most important traditional rice types.</p>
+              </article>
+            </div>
+            
+            <div class="col-lg-4">
+              <div class="row">
+                <div class="col-md-6 col-lg-12 mb-4">
+                  <article class="post">
+                    <figure class="mb-3">
+                      <a href="#"><img src="product14.jpg" style="height: 200px; width: 200px;" class="img-fluid rounded" alt="Pungar"></a>
+                    </figure>
+                    <div class="post-header">
+                      <p class="text-muted small text-uppercase fw-bold">Medicinal Rice</p>
+                      <h2 class="h5"><a href="./blog1.html" class="text-dark">Pungar - High in Nutrients</a></h2>
+                    </div>
+                    <p class="text-muted small"><i class="uil uil-calendar-alt"></i> 20 Feb 2025 | <i class="uil uil-comment"></i> 7</p>
+                  </article>
+                </div>
+                <div class="col-md-6 col-lg-12">
+                  <article class="post">
+                    <figure class="mb-3">
+                      <a href="#"><img src="product7.jpg" style="height: 200px; width: 200px;" class="img-fluid rounded" alt="Mysore Malliga"></a>
+                    </figure>
+                    <div class="post-header">
+                      <p class="text-muted small text-uppercase fw-bold">Immunity Booster</p>
+                      <h2 class="h5"><a href="./blog2.html" class="text-dark">Mysore Malliga - Rich in Nutrients</a></h2>
+                    </div>
+                    <p class="text-muted small"><i class="uil uil-calendar-alt"></i> 18 Feb 2025 | <i class="uil uil-comment"></i> 5</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    
+                    <div>
+                        <h5>Our Location</h5>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Dr NO:48-11/8-7
+                            Currency Nagar,<br>
+                            minline (Beside Swarna Residency),
+                            <br> Vijayawada, Andhra Pradesh, 520008</p>
+                        <h5>General Enquiries</h5>
+                        <p><i class="fas fa-envelope me-2"></i> info@realrice.in</p>
+                        <h5>Call Us</h5>
+                        <p><i class="fas fa-phone me-2"></i> +91 7557657777</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Email ID" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" id="phone" placeholder="Mobile Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                    
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <img src="img_logo.ico" alt="Logo" class="mb-4">
+                    <p>We provide 100% Natural Farming quality Real rice varieties sourced directly from the finest farms. Experience the authentic taste and aroma of our carefully selected rice.</p>
+                    <div class="footer-social mt-3">
+                        <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://m.me/username" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/917557657777" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="footer-heading">USEFUL LINKS</h5>
+                    <a href="#" class="footer-link">Home</a>
+                    <a href="#" class="footer-link">About Us</a>
+                    <a href="#" class="footer-link">Products</a>
+                    <a href="#" class="footer-link">Categories</a>
+                    <a href="#" class="footer-link">Gallery</a>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="footer-heading">MORE</h5>
+                    <a href="#" class="footer-link">Videos</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Contact Us</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-heading">CONTACT</h5>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i> Dr NO:48-11/8-7
+                        Currency Nagar,<br>
+                        minline (Beside Swarna Residency),
+                        <br> Vijayawada, Andhra Pradesh, 520008
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-phone"></i> +91 7557657777
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope"></i> info@realrice.in
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright mt-5">
+            <div class="container">
+                <p class="mb-0">© Copyright 2025. Your Company Name. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Chat Support -->
+    <div class="chat-support">
+        <div class="chat-icon" id="chatToggle">
+            <a href="https://wa.me/917557657777" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- Help Button -->
+    <div class="help-icon" id="helpToggle">
+        <i class="fas fa-question"></i>
+    </div>
+
+    <!-- Chat Window -->
+    
+
+    <!-- Bootstrap & jQuery JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+        
+            const formData = new FormData();
+            formData.append("name", document.getElementById("name").value);
+            formData.append("email", document.getElementById("email").value);
+            formData.append("phone", document.getElementById("phone").value);
+            formData.append("message", document.getElementById("message").value);
+        
+            const response = await fetch("send_mail.php", {
+                method: "POST",
+                body: formData,
+            });
+        
+            const data = await response.json();
+            alert(data.success || data.error);
+        });
+        </script>
+</body>
+</html>
